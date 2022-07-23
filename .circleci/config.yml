@@ -4,7 +4,7 @@ workflows:
   version: 2
   build:
     jobs:
-      - build
+      - print-hello
 
 jobs:
   build:
@@ -40,3 +40,10 @@ jobs:
           prefix: coverage
       - store_test_results:
           path: test-results.xml
+
+  print-hello:
+    docker:
+      - image: circleci/node:10.16.3
+    steps:
+      - run: echo "hello"
+
